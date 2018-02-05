@@ -91,13 +91,25 @@ HINT: Use split() and substring()
  --------------------------- */
 
 function protect_email(email) {
-  return "protected email";
+
+  var fields = email.split(/@/);
+  var len=fields[0].length;
+  var damn=fields[0];
+  var temp="";
+
+  for(var i=0;i<len/2;i++)
+  {
+    temp=temp+ damn[i];
+  }
+  temp= temp+"....@"+ fields[1];
+  return temp;
 }
 
 console.log("Protected email:");
 /* Uncomment the following to check */
-  //console.log(protect_email("harry_potter@gmail.com"));
-  //console.log(protect_email("sarah.connor@gmail.com"));
+  console.log(protect_email("harry_potter@gmail.com"));
+  console.log(protect_email("sarah.connor@gmail.com"));
+  console.log(protect_email("couchPotato@yahoo.com"));
 
 
 /* ---------------------------
@@ -115,13 +127,23 @@ HINT: Use indexOf() and slice()
  --------------------------- */
 
 function remove_first_occurrence(text, searchstring) {
-  return "edited text";
+
+
+    var pos = text.indexOf(searchstring);
+
+
+   {
+     var len= searchstring.length;
+     var editedtext= text.slice(pos);
+
+   }
+  return editedtext;
 }
 
 console.log("Remove First Occurrence:");
 /* Uncomment the following to check */
-  //console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the'));
-  //console.log(remove_first_occurrence("Drastic times call for drastic measures", 'drastic'));
+  console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the'));
+  console.log(remove_first_occurrence("Drastic times call for drastic measures", 'drastic'));
 
 
 /* ---------------------------
@@ -139,12 +161,18 @@ HINT: Use join(), split() and sort() functions
  --------------------------- */
 
 function alphabetic_order(word) {
-  return "rearranged word";
+  var Array; var zap='a';
+  for(var i=0;i<26;i++)
+  {
+    Array[i]=zap;
+    zap++;
+  }
+  return zap;
 }
 
 console.log("Alphabetic Order:");
 /* Uncomment the following to check */
-  // console.log(alphabetic_order("textbook"));
+   console.log(alphabetic_order("textbook"));
   // console.log(alphabetic_order("webmaster"));
   // console.log(alphabetic_order("supercalifragilisticexpialidocious"));
 
