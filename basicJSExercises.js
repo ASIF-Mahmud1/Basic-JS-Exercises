@@ -161,20 +161,22 @@ HINT: Use join(), split() and sort() functions
  --------------------------- */
 
 function alphabetic_order(word) {
-  var Array; var zap='a';
-  for(var i=0;i<26;i++)
-  {
-    Array[i]=zap;
-    zap++;
-  }
-  return zap;
+  var str = word;
+var chars = [];
+
+for (var i = 0; i < str.length; i++) {
+    chars.push(str.charAt(i));
+}
+
+chars = chars.sort().join("");
+ return (chars);
 }
 
 console.log("Alphabetic Order:");
 /* Uncomment the following to check */
    console.log(alphabetic_order("textbook"));
-  // console.log(alphabetic_order("webmaster"));
-  // console.log(alphabetic_order("supercalifragilisticexpialidocious"));
+   console.log(alphabetic_order("webmaster"));
+   console.log(alphabetic_order("supercalifragilisticexpialidocious"));
 
 
 /* ---------------------------
@@ -211,14 +213,38 @@ Output:
 [3, 'a', 2, 4, 9]
  --------------------------- */
 
-function remove_duplicates(arr) {
-  console.log("Duplicates removed from array");
+function remove_duplicates(chars) {
+
+chars = chars.sort();
+var array2=[];
+array2[0]=chars[0];
+counter=0; index=0;
+
+for(var i=0;i<chars.length;i++)
+{
+  for(var j=0;i<array2.length;j++)
+  {
+    if(chars[i]==array2[j])
+    {
+      counter++;
+    }
+
+  }
+  if(counter==0)
+  {
+    index++;
+    array2[index]=chars[i];
+  }
+  counter=0;
+}
+return array2[0];
+
 }
 
 console.log("Remove Duplicate Values:");
 /* Uncomment the following to check */
-  // remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
-  // remove_duplicates([4, 4, 4, 5, 's', 8, 's']);
+   remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
+   /*remove_duplicates([4, 4, 4, 5, 's', 8, 's']);*/
 
 
 /* ---------------------------
